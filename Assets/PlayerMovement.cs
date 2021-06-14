@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     void OnPlayerDeath()
     {
         isPlayerAlive = false;
-        print("Recieved Msg");
+        //print("Recieved Msg");
     }
 
     private void PlayerRotation()
@@ -77,14 +77,14 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Collision Happened");
     }
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger Happened");
+        //Debug.Log("Trigger Happened");
     }
     private void PlayerDeath()
     {
         Debug.Log("Player is Dead");
         SendMessage("OnPlayerDeath");
-    }
+    }*/
 
 }

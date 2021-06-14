@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 546695169}
   - component: {fileID: 546695168}
   - component: {fileID: 546695167}
+  - component: {fileID: 546695171}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -415,6 +416,18 @@ Transform:
   m_Father: {fileID: 482846149}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &546695171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546695166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541b99e54d6d3c2489d5fc78e10929f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +810,10 @@ PrefabInstance:
     - target: {fileID: 65861728141062150, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 701918635243309656, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
+      propertyPath: deathEffect
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}

@@ -7,10 +7,12 @@ public class EnimiesCollision : MonoBehaviour
     private void Awake()
     {
         Collider boxCollider = gameObject.AddComponent<BoxCollider>();
-        boxCollider.isTrigger = true;
+        boxCollider.isTrigger = false;
     }
     private void OnParticleCollision(GameObject other)
     {
-        print("Collision" + other.gameObject.name);
+        //Debug.Log("particle collision " + gameObject.name);
+
+        Destroy(gameObject);
     }
 }
