@@ -5,21 +5,20 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    float speed;
-    float xRange = 250.0f;
-    float yRange = 60.0f;
-    [SerializeField]
-    float positionrotationFactor = 5.0f;
-    [SerializeField]
-    float controlRotationFactor = 1.0f;
-    [SerializeField]
-    float positionyawFactor = 5.0f;
-    [SerializeField]
-    float controlRollFactor = 5.0f;
+    [Header("General")]
+
+    [SerializeField] float speed;
+    [SerializeField] float xRange = 250.0f;
+    [SerializeField] float yRange = 60.0f;
+
+    [Header("Position")]
+    [SerializeField] float positionrotationFactor = 5.0f;
+    [SerializeField] float controlRotationFactor = 5.0f;
+    [SerializeField] float positionyawFactor = 5.0f;
+    [SerializeField] float controlRollFactor = 5.0f;
 
     float xOffset, yOffset;
-
+    bool isPlayerAlive = true;
 
     void Start()
     {
@@ -29,8 +28,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerPosition();
-        PlayerRotation();
+        if (isPlayerAlive)
+        {
+            PlayerPosition();
+            PlayerRotation();
+        }
+        
+    }
+    void OnPlayerDeath()
+    {
+        isPlayerAlive = false;
+        print("Recieved Msg");
     }
 
     private void PlayerRotation()
@@ -64,6 +72,19 @@ public class PlayerMovement : MonoBehaviour
         float clampedYPos = Mathf.Clamp(yRawPos, -yRange, yRange);
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision Happened");
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Trigger Happened");
+    }
+    private void PlayerDeath()
+    {
+        Debug.Log("Player is Dead");
+        SendMessage("OnPlayerDeath");
     }
 
 }
